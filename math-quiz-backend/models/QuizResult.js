@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const QuizResultSchema = new mongoose.Schema({
     quizId: { type: String, required: true },
-    userId: { type: moongose.Schema.Types.ObjectId, ref: 'User', required: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     score: { type: Number, required: true },
     date: { type: Date, dafault: Date.now },
     answers: [{ 
