@@ -1,6 +1,6 @@
 const fs = require('fs');
 const express = require('express');
-const mongoose = require('moongose');
+const mongoose = require('mongoose');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
@@ -25,7 +25,7 @@ const privateKey = fs.readFileSync('certs/key.pem', 'utf8');
 const certificate = fs.readFileSync('certs/cert.pem', 'utf8');
 const credentials = { key: privateKey, cert: certificate };
 
-app.use('/api/auth', require('.routes/auth'));
+app.use('/api/auth', require('./routes/auth'));
 app.use('/api/profile', require('./routes/profile'));
 app.use('/api/quiz', require('./routes/quiz'));
 
