@@ -1,4 +1,4 @@
-const moongose = require('moongose');
+const moongose = require('mongoose');
 
 const QuizResultSchema = new moongose.Schema({
     quizId: { type: String, required: true },
