@@ -1,6 +1,6 @@
-const moongose = require('mongoose');
+const mongoose = require('mongoose');
 
-const QuizResultSchema = new moongose.Schema({
+const QuizResultSchema = new mongoose.Schema({
     quizId: { type: String, required: true },
     userId: { type: moongose.Schema.Types.ObjectId, ref: 'User', required: true },
     score: { type: Number, required: true },
