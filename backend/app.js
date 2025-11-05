@@ -1,11 +1,12 @@
 const express = require('express');
+const dotenv = require('dotenv');
+
+
 const app = express();
-const PORT = process.env.port || 11000;
+dotenv.config();
 
-app.get('/', (req, res) => {
-    res.send(`Server is running on ${PORT} port`);
-});
 
+//API-k elérése
 app.listen(PORT, (req, res) => {
-    console.log(`Server is running on ${PORT} port`);
+    console.log(`Szerver fut a ${process.env.PORT} porton`);
 });
