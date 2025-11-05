@@ -5,12 +5,13 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "install": "npm install express",
+    "install": "npm install express mongoose jsonwebtoken cors express-rate-limit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jozsef Meszaros",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^8.19.3"
   }
 }
