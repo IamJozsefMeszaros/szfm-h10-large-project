@@ -7,6 +7,6 @@ dotenv.config();
 
 
 //API-k elérése
-app.listen(PORT, (req, res) => {
+app.listen(process.env.PORT, (req, res) => {
     console.log(`Szerver fut a ${process.env.PORT} porton`);
 });
