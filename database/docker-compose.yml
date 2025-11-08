@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongodb/mongodb-community-server:7.0-ubuntu2204
+    container_name: mongodb-math-quiz
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpass
+      MONGO_INITDB_DATABASE: mathquiz
+    volumes:
+      - ./init.js:/docker-entrypoint-initdb.d/init.js:ro
