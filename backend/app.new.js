@@ -23,6 +23,7 @@ const { router: userRoutes } = require('./routes/userRoutes');
 const { router: quizRoutes } = require('./routes/quizRoutes');
 const { router: profileRoutes } = require('./routes/profileRoutes');
 const { router: passwordResetRoutes } = require('./routes/passwordResetRoutes');
+const { router: resultRoutes } = require('./routes/resultRoutes');
 
 app.use(express.json());
 app.use(auth);
@@ -36,6 +37,7 @@ app.use('/api/quiz', quizRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/passwordReset', passwordResetRoutes);
 app.use('/api/hall-of-fame', hallOfFameRoutes);
+app.use('/api/results', resultRoutes);
 
 app.use((err, req, res, next) => {
     logger.error(`${err.message} - ${req.method} ${req.url}`);
