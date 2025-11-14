@@ -42,7 +42,7 @@ router.get('/all-games', async (req, res) => {
 router.get('/quiz/:quizId/questions', async (req, res) => {
     try {
         const quizId = req.params.quizId;
-        const quizResult = await QuizResult.findOne({ quizId }),
+        const quizResult = await QuizResult.findOne({ quizId });
         if (!quizResult) return res.status(404).json({ error: 'Nincs ilyen kvíz' });
 
         const questions = quizResult.answers.map(a => ({
