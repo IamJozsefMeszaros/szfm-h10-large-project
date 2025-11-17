@@ -3,6 +3,20 @@ const router = express.Router();
 const { auth } = require('../middleware/auth');
 const QuizResult = require('../models/QuizResult');
 
+/**
+ * @swagger
+ * /quiz/all-games:
+ *   get:
+ *     summary: Összes játék lekérése
+ *     responses:
+ *       200:
+ *         description: Sikeres lekérés
+ *       404:
+ *         description: Nincs rögzített kvíz
+ *       500:
+ *         description: Szerver hiba
+ */
+
 router.get('/my-games', auth, async (req, res) => {
     try {
         const userId = req.userId;
@@ -21,6 +35,20 @@ router.get('/my-games', auth, async (req, res) => {
     catch (err) { res.status(500).json({ error: 'Hiba történt a játékok lekérésekor' }); }
 });
 
+/**
+ * @swagger
+ * /quiz/all-games:
+ *   get:
+ *     summary: Összes játék lekérése
+ *     responses:
+ *       200:
+ *         description: Sikeres lekérés
+ *       404:
+ *         description: Nincs rögzített kvíz
+ *       500:
+ *         description: Szerver hiba
+ */
+
 router.get('/all-games', async (req, res) => {
     try{
         const games = (await QuizResult.find()).populate('userId', 'username');
@@ -38,6 +66,26 @@ router.get('/all-games', async (req, res) => {
     }
     catch (err) { res.status(500).json({ error: 'Hiba történt az összes játék lekérésekor' }); }
 });
+
+/**
+ * @swagger
+ * /quiz/{quizId}/questions:
+ *   get:
+ *     summary: Kvíz kérdéseinek lekérése
+ *     parameters:
+ *       - in: path
+ *         name: quizId
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Sikeres lekérés
+ *       404:
+ *         description: Nincs ilyen kvíz
+ *       500:
+ *         description: Szerver hiba
+ */
 
 router.get('/quiz/:quizId/questions', async (req, res) => {
     try {
